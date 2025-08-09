@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            /* optional gap for spacing */
+            gap: 1rem;
+        }
+
+        .sidebar {
+            /* sidebar takes 38.2% of the width */
+            background-color: #f4f4f4;
+            padding: 3px 6px 0 5px;
+            box-sizing: border-box;
+            border-right: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-content {
+            width: 61.8%;
+            /* main content takes 61.8% of the width */
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .sidebar img {
+            width: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav-links {
+            width: 100%;
+        }
+
+        .nav-links a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-links a:hover {
+            background-color: #ddd;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            /* take the remaining 2/3 */
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .social-media {
+            margin-top: auto;
+            /* pushes it to bottom of sidebar */
+            padding-top: 20px;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
+
+        .social-media a {
+            display: inline-block;
+            margin: 5px 8px;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .social-media a:hover {
+            color: #0073b1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="/images/image.jpeg" alt="Profile Picture" />
+            <div class="nav-links">
+                <a href="/experience.html">Experiences</a>
+                <a href="/research.html">Research papers</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/childhood.html">Childhood</a>
+                <div class="social-media">
+                    <a href="https://www.github.com/6namdang" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/dang004" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:6namdang@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.x.com/hwangnamd"> <i class="fab fa-twitter"></i></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <h3 style="justify-content: center;">Hoang Nam Dang</h3>
+            <i>B.S in Computer Science Gannon University (2021- 2025)</i>
+            <br />
+            <p>I have about 1 and a half years of experiences in software engineer:
+            <ul>
+                <li>building VR/AR application with industrial engineer</li>
+                <li>backend distributed system (where things talk to each other)</li>
+                <li>networking and improving/ optimizing latency!</li>
+            </ul>
+            </p>
+            <br />
+            <p>
+                I had an opportunity to be a research assistant for 3 different professors during my undergrad (Prof.
+                Longfei Zhou- Smart
+                Manufacturing,
+                Prof. Kefei Wang -
+                Distributed Data/ML, and Prof. Ronny-Bazan - Network Security/ Security in the cloud)
+            </p>
+            <br />
+            <p>I don't have a favorite programming language. I think Go/C++ is a good one. Python is also pretty useful
+                for grinding Leetcode.</p>
+            <br />
+            <b>I am currently looking for a job. If you think I'm a good fit, please send me a message!</b>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

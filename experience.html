@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e9ecef;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 24px 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -72px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #6c757d;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #e9ecef;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: -220px;
+            top: 20px;
+            color: #6c757d;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .company-logo {
+            position: absolute;
+            left: -195px;
+            top: 50px;
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .company-info {
+            margin-bottom: 16px;
+        }
+
+        .company-logo img {
+            border-radius: 20%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .company-content h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .company-content p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .company-content ul {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .company-content li {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .company-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        .highlight-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .highlight-link:hover {
+            text-decoration: underline;
+        }
+
+        .track-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+            margin: 16px 0 8px 0;
+        }
+
+        /* Fixed Media Grid - Uses Flexbox for horizontal alignment */
+        .media-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .media-item {
+            flex: 0 0 auto;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* For text-only media items */
+        .media-item:not(:has(img)) {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 12px;
+            font-size: 12px;
+            color: #6c757d;
+            text-align: center;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Letter logos */
+        .openai-logo {
+            background-color: #10a37f;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        .tesla-logo {
+            background-color: #cc0000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 60px;
+            }
+
+            .timeline-date {
+                left: -140px;
+                font-size: 12px;
+            }
+
+            .timeline-item::before {
+                left: -52px;
+            }
+
+            .media-grid {
+                flex-direction: column;
+            }
+
+            .media-item:not(:has(img)) {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-date {
+                position: static;
+                margin-bottom: 12px;
+                display: block;
+            }
+
+            .timeline-item::before {
+                display: none;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">curriculum vitæ</h1>
+    <div class="timeline-container">
+        <div class="timeline">
+            <!-- 2024 -->
+            <div class="timeline-item">
+                <div class="timeline-date">Oct 2021 - Jan 2023</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/knightclub.jpeg" alt="Knight Club Logo"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+                    <div class="company-content">
+                        <h3>Bartender</h3>
+                        <h4>The Knight Club</h4>
+                        I joined the Knight Club as a bartender to <i>improving communication and learning US
+                            cultures.</i>
+                        The job was a great experience, met tons of people and managed a lot of events. But sometimes it
+                        does get hectic, especially in the weekend! (If you know what I'm talking about!). The worst
+                        part is, the bar served free popcorn, and I literally saw someone diving their heads into the
+                        kettle.
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <img src="/images/kc1.jpeg" alt="KC1"
+                            style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                    </div>
+                    <div class="media-item">
+                        <img src="/images/kc2.jpeg" alt="KC2"
+                            style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2023-2024 -->
+            <div class="timeline-item">
+                <div class="timeline-date">Summer 2022</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/images.jpeg" alt="Department of Residence Life"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+
+                    <div class="company-content">
+                        <h3>Summer Conference Assistant</h3>
+                        <h4>Department of Residence Life</h4>
+                        This job is by far the most labor-intensed job that I have ever done.
+                        We were working from 8 to 4 every day, cleaning student's dorm and moving furniture (200lbs
+                        fridges, 500lbs wardrobes, etc...).
+                        The pay was quite low, but the good thing was that we all got free summer housing.
+                        This job taught me a lot of things, but one thing is <b>to keep pushing during the most
+                            challenging time of my life.</b>
+                        During this item, I met Seph and volunteered at <a href="https://ourwestbayfront.org/">Our West
+                            Bayfront</a> - a non-profit
+                        organization that helps community around Erie with their needs, and organize activities for
+                        children.
+                    </div>
+                    <div class="media-grid">
+                        <div class="media-item small-img">
+                            <img src="/images/sca.jpeg" alt="SCA1"
+                                style="width: 250px; height: 180px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item small-img">
+                            <img src="/images/sca2.JPEG" alt="SCA2"
+                                style="width: 250px; height: 180px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item small-img">
+                            <img src="/images/sca3.JPEG" alt="SCA3"
+                                style="width: 250px; height: 180px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2017-2022 -->
+            <div class="timeline-item">
+                <div class="timeline-date">May 2023 - May 2024</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/images.jpeg" alt="Department of Residence Life"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+                    <div class="company-content">
+                        <h3>Data Analyst</h3>
+                        I came back and work for Residence Life in-office position.
+                        I make sure that all datas are updated and synchronized between the students rooms and keys, and
+                        make sure
+                        that nothing get lost in the transportations.
+                        <br />
+                        It was here that I started to develop the interest in Machine Learning. I thought how cool would
+                        it be
+                        if we had a system that can automatically process information in real-time.
+                        Recommedation
+                        system to find the best roommate for each student.
+                    </div>
+                </div>
+            </div>
+            <!-- 2017-2022 -->
+
+            <div class="timeline-item">
+                <div class="timeline-date">Aug 2024 - May 2025</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/vrar.png" alt="Department of Residence Life"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+                    <div class="company-content">
+                        <h3>VR Application Developer</h3>
+                        I worked under the guidance of <i><a
+                                href="https://ww4.gannon.edu/facultyprofiles.aspx?profile=ohu001">Prof. Ohu,
+                                Ikechukwu</a></i>.
+                        <br />
+                        The goal of this project was to developed a
+                        <a href="https://bancrofteng.com/welding-systems/rotary-part-weld-lathe/">Welding-Lathe</a>
+                        machine - that can <u>help workers practiced in a simulated-controlled virtual environment,
+                            which
+                            can improve their experience</u>
+                        significantly. I don't think people have talked about this enough. I think AI cannot help
+                        workers learn HVAC or Mech/Industrial Engineer yet, so it is very important to both us and also
+                        our partnership with another industrial company that was involved in this project.
+                    </div>
+                    <div class="media-grid">
+                        <div class="media-item">
+                            <img src="/images/arvr3.png" alt="KC1"
+                                style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item">
+                            <img src="/images/image.png" alt="KC1"
+                                style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+
+                        <div class="media-item">
+                            <img src="/images/vrar2.png" alt="KC2"
+                                style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item">
+                            <img src="/images/vrar4.png" alt="KC2"
+                                style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item">
+                            <img src="/images/vrar5.jpg" alt="KC2"
+                                style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://drive.google.com/file/d/1DvDmtxfxsTzFvxaHvuEMzahYDUb-Nq_3/preview"
+                                width="320" height="240" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://drive.google.com/file/d/1qQ09GAsp0iALaMgJrpsjlaZiM3bvOGWU/preview"
+                                width="320" height="240" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-item">
+                            <iframe src="https://drive.google.com/file/d/1hHxlPmEEhy-A_h89bcxR6iL90qwqektV/preview"
+                                width="320" height="240" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Dec 2024 - May 2025</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/te3co_logo.jpeg" alt="Logo"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+                    <div class="company-content">
+                        <h3>Software Engineer</h3>
+                        <h4>E3 Company</h4>
+                        I joined as a software engineer between GU Incubator and E3 Company.
+                        <br />
+                        My main responsibility were developing a <u>distributed system to measured gas pressure,
+                            level and different electric voltage of a gas plant </u> and display the data to the
+                        dashboard.
+                        Additionally, an alert will be created and notified when a measurement exceed a threshold.
+                        <br />
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <img src="/images/e3com1.png" alt="KC1"
+                            style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;"
+                            onclick="openFullscreen(this)" />
+                    </div>
+                    <div class="media-item">
+                        <img src="/images/e3com2.png" alt="KC2"
+                            style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;"
+                            onclick="openFullscreen(this)" />
+                    </div>
+                    <div class="media-item">
+                        <img src="/images/e3com4.jpeg" alt="KC2"
+                            style="width: 200px; height: 140px; object-fit: cover; border-radius: 10px;" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Dec 2024 - May 2025</div>
+                <div class="company-info">
+                    <div class="company-logo">
+                        <img src="/images/vrar.png" alt="Logo"
+                            style="width: 120px; height: 120px; object-fit: cover; border-radius: 20%;" />
+                    </div>
+                    <div class="company-content">
+                        <h3>Research Assistant - Smart Manufacturing</h3>
+                        <h4>Department of BISE</h4>
+                        My main responsibility was to collect<u> <i>fault 3D printed data</i></u> (videos)
+                        and use Machine Learning to detect errors.
+                        <br />
+                        <ul>
+                            We investigated:
+                            <li>What caused the 3D print failure—filament, glue, or incorrect slicing?</li>
+                            <li> If one part fails, should we continue printing the rest or restart?</li>
+                            <li> How can we capture the entire scene with only a default camera on the right?</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="media-grid">
+                    <div class="media-item">
+                        <iframe src="https://drive.google.com/file/d/1Jw08ZYCQ8RoW3zJFexsG_UF3HP_HeYjx/preview"
+                            width="320" height="240" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <script>
+            function openFullscreen(elem) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { // Safari
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE11
+                    elem.msRequestFullscreen();
+                }
+            }
+        </script>
+
+        <b>(May 2025)- I am building my own startup platform to connect researchers together. I want to make a
+            minimal, research styled, not too fancy. If you want to be involved, please contact me.</b>
+
+</body>
+
+</html>
